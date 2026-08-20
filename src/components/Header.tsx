@@ -1,4 +1,4 @@
-import { BellIcon, CrossCrossletLogo, HeartIcon } from "./icons";
+import { BellIcon, HeartIcon } from "./icons";
 
 interface HeaderProps {
   date: string;
@@ -6,29 +6,51 @@ interface HeaderProps {
   expanded?: boolean;
   /** Meniu screen shows only the bell, no heart. */
   icons?: "both" | "bell-only";
+  /** Zilnic screen only: episcopate logo image src. Shows a neutral placeholder slot when empty. */
+  episcopateLogo?: string;
 }
 
-export function Header({ date, expanded = false, icons = "both" }: HeaderProps) {
+export function Header({
+  date,
+  expanded = false,
+  icons = "both",
+  episcopateLogo,
+}: HeaderProps) {
   return (
     <header className="px-screen-x pt-[max(env(safe-area-inset-top),12px)]">
       {expanded && (
         <div className="flex items-start justify-between gap-md pb-5">
-          <div>
-            <p className="font-sans text-[15px] font-semibold uppercase tracking-[0.10em] text-text-secondary">
-              Patriarhia Română
+          <div className="min-w-0 flex-1">
+            <p className="font-[family-name:var(--font-cinzel)] text-[11.5px] font-medium leading-[1.15] tracking-[0.04em] text-[#EF6F6C]">
+              Romanian Orthodox Episcopate of America
             </p>
-            <h1 className="font-serif text-[34px] font-bold uppercase leading-[1.05] text-accent">
+            <h1 className="mt-[6px] font-[family-name:var(--font-pt-serif)] text-[34px] font-bold uppercase leading-[0.98] tracking-[-0.02em] text-[#255C99]">
               Calendar
               <br />
               Ortodox
             </h1>
           </div>
-          <CrossCrossletLogo className="mt-1 h-[90px] w-[90px] shrink-0 text-accent" />
+          {episcopateLogo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={episcopateLogo}
+              alt="Romanian Orthodox Episcopate of America"
+              className="mt-1 h-[120px] w-[120px] shrink-0 object-contain"
+            />
+          ) : (
+            <div className="mt-1 flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-[12px] border border-divider">
+              <span className="font-sans text-[11px] font-semibold uppercase text-text-muted">
+                Logo
+              </span>
+            </div>
+          )}
         </div>
       )}
 
       <div className="flex items-center justify-between">
-        <p className="font-serif text-[22px] font-medium text-accent">{date}</p>
+        <p className="font-[family-name:var(--font-pt-serif)] text-[20px] font-normal text-[#255C99]">
+          {date}
+        </p>
         <div className="flex items-center gap-md">
           {icons === "both" && (
             <button

@@ -23,8 +23,3 @@ export interface LunarDay {
   title: string;
   isFeast: boolean;
 }
-
-export interface ZilnicInfoRow {
-  label: string;
-  icon: "wedding" | "memorial";
-}

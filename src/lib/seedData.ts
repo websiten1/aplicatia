@@ -1,8 +1,8 @@
-import type { AnualDayCell, AnualMonth, LunarDay, ZilnicInfoRow } from "./types";
+import type { AnualDayCell, AnualMonth, LunarDay } from "./types";
 
 export const WEEKDAY_LETTERS = ["L", "M", "M", "J", "V", "S", "D"];
 
-export const ZILNIC_DAY_STRIP = [16, 17, 18, 19, 20, 21, 22, 23, 24];
+export const ZILNIC_DAY_STRIP = [17, 18, 19, 20, 21, 22, 23];
 export const ZILNIC_SELECTED_DAY = 20;
 
 export const ZILNIC_HEADER_DATE = "Joi, 20 aug. '26";
@@ -10,10 +10,8 @@ export const ZILNIC_HEADER_DATE = "Joi, 20 aug. '26";
 export const ZILNIC_DAY_TITLE =
   "Sf. Proroc Samuel; Sf. Mc. Sever, Eliodor și Teoharie";
 
-export const ZILNIC_INFO_ROWS: ZilnicInfoRow[] = [
-  { label: "Zi în care se fac nunți", icon: "wedding" },
-  { label: "Zi în care se săvârșesc parastase", icon: "memorial" },
-];
+export const ZILNIC_SYNAXARION =
+  "Samuel, prorocul Domnului, cel iubit de Domnul, a ridicat împărăția și a uns pe Saul și pe David peste poporul Lui. Cu legea Domnului a judecat adunarea și a cercetat Domnul pe Iacov prin rugăciunile lui. Și a fost cunoscut întru credința sa că este proroc credincios.";
 
 export const MONTH_STRIP = [
   "MAI",

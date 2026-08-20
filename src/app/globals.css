@@ -57,22 +57,19 @@ body {
 }
 
 /*
- * The reference screens are iPhone-width (390px logical) designs; every
- * px value in the token scale is calibrated for that width. On anything
- * wider we render the app as a centered phone-width column instead of
- * letting absolute px values scale up against a full desktop viewport.
+ * The reference screens are iPhone-width (402px logical) designs; every
+ * px value in the token scale is calibrated for that width. The frame is
+ * hard-capped at 402px unconditionally (no media-query gap) so it can
+ * never stretch wider, on desktop or on any phone wider than 402px.
  */
 .app-frame {
   width: 100%;
-  max-width: 100vw;
+  max-width: 402px;
   margin: 0 auto;
+  background: #ffffff;
   min-height: 100dvh;
   position: relative;
-}
-@media (min-width: 430px) {
-  .app-frame {
-    max-width: 402px;
-  }
+  overflow-x: hidden;
 }
 
 /* Hide scrollbars on horizontal strips while keeping them scrollable */
@@ -89,4 +86,15 @@ body {
 }
 .snap-x-strip > * {
   scroll-snap-align: center;
+}
+
+/* Zilnic synaxarion body: burgundy drop cap spanning ~2 lines of 15px/1.55 text. */
+.zn-dropcap::first-letter {
+  float: left;
+  font-family: var(--font-pt-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 0.86;
+  color: #b1303b;
+  margin-right: 8px;
 }

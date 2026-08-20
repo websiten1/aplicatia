@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cinzel, Inter, Playfair_Display, PT_Serif } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -13,6 +13,20 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+/** Zilnic header only: eyebrow font. */
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+/** Zilnic header only: title + date font. PT Serif only ships 400/700 (no 500). */
+const ptSerif = PT_Serif({
+  variable: "--font-pt-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +43,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${playfair.variable} ${inter.variable} h-full`}>
+    <html
+      lang="ro"
+      className={`${playfair.variable} ${inter.variable} ${cinzel.variable} ${ptSerif.variable} h-full`}
+    >
       <body className="min-h-full flex flex-col bg-bg-app font-sans antialiased">
         <div className="app-frame">{children}</div>
       </body>
