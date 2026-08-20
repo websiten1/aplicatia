@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), -apple-system, system-ui, sans-serif;
+
+  /* Color tokens — Part A1 */
+  --color-bg-app: #eae8e3;
+  --color-bg-sheet: #ffffff;
+  --color-bg-row-alt: #e6e4df;
+
+  --color-accent: #6e1e43;
+  --color-accent-deep: #5a1836;
+
+  --color-feast-red: #e1352b;
+  --color-feast-chip-bg: #f9e0e4;
+
+  --color-special-blue: #2e5baa;
+  --color-special-blue-bg: #e4ecf7;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b6b6b;
+  --color-text-muted: #9a9a9a;
+
+  --color-chip-neutral-bg: #edebe7;
+  --color-divider: #d8d5d0;
+
+  --color-navbar-bg: #0a0a0a;
+  --color-navbar-active: #ffffff;
+  --color-navbar-inactive: #8e8b87;
+
+  /* Shape scale — Part A2 */
+  --radius-sheet-top: 28px;
+  --radius-card: 20px;
+  --radius-chip: 14px;
+  --radius-pill: 999px;
+
+  /* Spacing scale — Part A2 */
+  --spacing-screen-x: 20px;
+  --spacing-section: 28px;
+  --spacing-lg: 16px;
+  --spacing-md: 12px;
+  --spacing-sm: 8px;
+  --spacing-icon-circle: 56px;
+  --spacing-header-icon: 52px;
+  --spacing-tap-min: 44px;
+}
+
+:root {
+  --background: var(--color-bg-app);
+}
+
+body {
+  background: var(--background);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+/*
+ * The reference screens are iPhone-width (390px logical) designs; every
+ * px value in the token scale is calibrated for that width. On anything
+ * wider we render the app as a centered phone-width column instead of
+ * letting absolute px values scale up against a full desktop viewport.
+ */
+.app-frame {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+}
+@media (min-width: 430px) {
+  .app-frame {
+    max-width: 402px;
+  }
+}
+
+/* Hide scrollbars on horizontal strips while keeping them scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-x-strip {
+  scroll-snap-type: x proximity;
+}
+.snap-x-strip > * {
+  scroll-snap-align: center;
+}
