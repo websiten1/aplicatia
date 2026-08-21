@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Calendar Ortodox",
-    short_name: "Calendar Ortodox",
-    description: "Calendarul ortodox zilnic, lunar și anual.",
-    start_url: "/zilnic",
+    name: "Romanian Orthodox Episcopate of America",
+    short_name: "ROEA",
+    description: "Daily readings, calendar, prayers, fasting rules, resources and parish directory.",
+    start_url: "/today",
     display: "standalone",
-    background_color: "#eae8e3",
-    theme_color: "#0a0a0a",
+    background_color: "#ffffff",
+    theme_color: "#0b0057",
     icons: [
       {
         src: "/favicon.ico",

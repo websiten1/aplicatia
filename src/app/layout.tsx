@@ -1,13 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Inter, Playfair_Display, PT_Serif } from "next/font/google";
+import { Inter, PT_Serif } from "next/font/google";
 import "./globals.css";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,14 +8,6 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-/** Zilnic header only: eyebrow font. */
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
-/** Zilnic header only: title + date font. PT Serif only ships 400/700 (no 500). */
 const ptSerif = PT_Serif({
   variable: "--font-pt-serif",
   subsets: ["latin"],
@@ -30,24 +15,21 @@ const ptSerif = PT_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Calendar Ortodox",
-  description: "Calendarul ortodox zilnic, lunar și anual.",
+  title: "Romanian Orthodox Episcopate of America",
+  description: "Daily readings, calendar, prayers, fasting rules, resources and parish directory.",
   manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#0b0057",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="ro"
-      className={`${playfair.variable} ${inter.variable} ${cinzel.variable} ${ptSerif.variable} h-full`}
-    >
-      <body className="min-h-full flex flex-col bg-bg-app font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${ptSerif.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-page-white font-sans antialiased">
         <div className="app-frame">{children}</div>
       </body>
     </html>
